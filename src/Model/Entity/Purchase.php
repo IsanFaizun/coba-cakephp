@@ -11,8 +11,8 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property int $motorcycle_id
  * @property int $supplier_id
- * @property string $price
- * @property \Cake\I18n\FrozenDate $date
+ * @property string $transaction_code
+ * @property int $price
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  *
@@ -33,8 +33,8 @@ class Purchase extends Entity
     protected $_accessible = [
         'motorcycle_id' => true,
         'supplier_id' => true,
+        'transaction_code' => true,
         'price' => true,
-        'date' => true,
         'created' => true,
         'modified' => true,
         'motorcycle' => true,

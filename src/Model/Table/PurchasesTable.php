@@ -75,14 +75,15 @@ class PurchasesTable extends Table
             ->notEmptyString('supplier_id');
 
         $validator
-            ->decimal('price')
-            ->requirePresence('price', 'create')
-            ->notEmptyString('price');
+            ->scalar('transaction_code')
+            ->maxLength('transaction_code', 255)
+            ->requirePresence('transaction_code', 'create')
+            ->notEmptyString('transaction_code');
 
         $validator
-            ->date('date')
-            ->requirePresence('date', 'create')
-            ->notEmptyDate('date');
+            ->integer('price')
+            ->requirePresence('price', 'create')
+            ->notEmptyString('price');
 
         return $validator;
     }

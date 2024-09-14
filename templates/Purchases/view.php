@@ -27,16 +27,16 @@
                     <td><?= $purchase->has('supplier') ? $this->Html->link($purchase->supplier->name, ['controller' => 'Suppliers', 'action' => 'view', $purchase->supplier->id]) : '' ?></td>
                 </tr>
                 <tr>
+                    <th><?= __('Transaction Code') ?></th>
+                    <td><?= h($purchase->transaction_code) ?></td>
+                </tr>
+                <tr>
                     <th><?= __('Id') ?></th>
                     <td><?= $this->Number->format($purchase->id) ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Price') ?></th>
                     <td><?= $this->Number->format($purchase->price) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Date') ?></th>
-                    <td><?= h($purchase->date) ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Created') ?></th>

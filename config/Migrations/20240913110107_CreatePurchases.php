@@ -25,14 +25,14 @@ class CreatePurchases extends AbstractMigration
             'limit' => 11,
             'null' => false,
         ]);
-        $table->addColumn('price', 'decimal', [
+        $table->addColumn('transaction_code', 'string', [
             'default' => null,
+            'limit' => 255,
             'null' => false,
-            'precision' => 10,
-            'scale' => 6,
         ]);
-        $table->addColumn('date', 'date', [
+        $table->addColumn('price', 'integer', [
             'default' => null,
+            'limit' => 20,
             'null' => false,
         ]);
         $table->addColumn('created', 'datetime', [

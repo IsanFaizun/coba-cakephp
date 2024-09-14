@@ -71,32 +71,9 @@ class MotorcyclesTable extends Table
             ->notEmptyString('name');
 
         $validator
-            ->scalar('brand')
-            ->maxLength('brand', 255)
-            ->requirePresence('brand', 'create')
-            ->notEmptyString('brand');
-
-        $validator
-            ->scalar('model')
-            ->maxLength('model', 255)
-            ->requirePresence('model', 'create')
-            ->notEmptyString('model');
-
-        $validator
-            ->decimal('price')
-            ->requirePresence('price', 'create')
-            ->notEmptyString('price');
-
-        $validator
             ->integer('year')
             ->requirePresence('year', 'create')
             ->notEmptyString('year');
-
-        $validator
-            ->scalar('status')
-            ->maxLength('status', 255)
-            ->requirePresence('status', 'create')
-            ->notEmptyString('status');
 
         return $validator;
     }

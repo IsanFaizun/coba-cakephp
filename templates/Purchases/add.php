@@ -22,7 +22,6 @@
                     echo $this->Form->control('motorcycle_id', ['options' => $motorcycles]);
                     echo $this->Form->control('supplier_id', ['options' => $suppliers]);
                     echo $this->Form->control('price');
-                    echo $this->Form->control('date');
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>

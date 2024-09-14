@@ -23,11 +23,7 @@
                 <legend><?= __('Edit Motorcycle') ?></legend>
                 <?php
                     echo $this->Form->control('name');
-                    echo $this->Form->control('brand');
-                    echo $this->Form->control('model');
-                    echo $this->Form->control('price');
                     echo $this->Form->control('year');
-                    echo $this->Form->control('status');
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>

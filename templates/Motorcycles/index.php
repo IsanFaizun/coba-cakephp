@@ -13,11 +13,7 @@
                 <tr>
                     <th><?= $this->Paginator->sort('id') ?></th>
                     <th><?= $this->Paginator->sort('name') ?></th>
-                    <th><?= $this->Paginator->sort('brand') ?></th>
-                    <th><?= $this->Paginator->sort('model') ?></th>
-                    <th><?= $this->Paginator->sort('price') ?></th>
                     <th><?= $this->Paginator->sort('year') ?></th>
-                    <th><?= $this->Paginator->sort('status') ?></th>
                     <th><?= $this->Paginator->sort('created') ?></th>
                     <th><?= $this->Paginator->sort('modified') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
@@ -28,11 +24,7 @@
                 <tr>
                     <td><?= $this->Number->format($motorcycle->id) ?></td>
                     <td><?= h($motorcycle->name) ?></td>
-                    <td><?= h($motorcycle->brand) ?></td>
-                    <td><?= h($motorcycle->model) ?></td>
-                    <td><?= $this->Number->format($motorcycle->price) ?></td>
                     <td><?= $this->Number->format($motorcycle->year) ?></td>
-                    <td><?= h($motorcycle->status) ?></td>
                     <td><?= h($motorcycle->created) ?></td>
                     <td><?= h($motorcycle->modified) ?></td>
                     <td class="actions">

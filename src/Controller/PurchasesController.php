@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Controller\AppController;
 /**
  * Purchases Controller
  *
@@ -11,6 +12,12 @@ namespace App\Controller;
  */
 class PurchasesController extends AppController
 {
+    public function initialize(): void
+    {
+        parent::initialize();
+        $this->loadComponent('TransactionCode');
+    }
+
     /**
      * Index method
      *
@@ -51,18 +58,29 @@ class PurchasesController extends AppController
     {
         $purchase = $this->Purchases->newEmptyEntity();
         if ($this->request->is('post')) {
+            // Patch data from the request into the entity
             $purchase = $this->Purchases->patchEntity($purchase, $this->request->getData());
+
+            // Generate the transaction code using the component
+            // Pass the current date or the date from the request
+            $purchase->transaction_code = $this->TransactionCode->generateTransactionCode(date('Y-m-d H:i:s'), 'PRC', 'Purchases');
+
+            // Attempt to save the purchase entity
             if ($this->Purchases->save($purchase)) {
                 $this->Flash->success(__('The purchase has been saved.'));
-
                 return $this->redirect(['action' => 'index']);
+            } else {
+                // Debug: Output validation errors
+                $this->Flash->error(__('The purchase could not be saved. Please, try again.'));
+                debug($purchase->getErrors());
             }
-            $this->Flash->error(__('The purchase could not be saved. Please, try again.'));
         }
+
         $motorcycles = $this->Purchases->Motorcycles->find('list', ['limit' => 200])->all();
         $suppliers = $this->Purchases->Suppliers->find('list', ['limit' => 200])->all();
         $this->set(compact('purchase', 'motorcycles', 'suppliers'));
     }
+
 
     /**
      * Edit method

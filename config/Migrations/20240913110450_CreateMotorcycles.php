@@ -20,30 +20,9 @@ class CreateMotorcycles extends AbstractMigration
             'limit' => 255,
             'null' => false,
         ]);
-        $table->addColumn('brand', 'string', [
-            'default' => null,
-            'limit' => 255,
-            'null' => false,
-        ]);
-        $table->addColumn('model', 'string', [
-            'default' => null,
-            'limit' => 255,
-            'null' => false,
-        ]);
-        $table->addColumn('price', 'decimal', [
-            'default' => null,
-            'null' => false,
-            'precision' => 10,
-            'scale' => 6,
-        ]);
         $table->addColumn('year', 'integer', [
             'default' => null,
             'limit' => 11,
-            'null' => false,
-        ]);
-        $table->addColumn('status', 'string', [
-            'default' => null,
-            'limit' => 255,
             'null' => false,
         ]);
         $table->addColumn('created', 'datetime', [

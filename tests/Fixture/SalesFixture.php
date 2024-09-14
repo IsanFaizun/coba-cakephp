@@ -22,10 +22,10 @@ class SalesFixture extends TestFixture
                 'id' => 1,
                 'motorcycle_id' => 1,
                 'customer_id' => 1,
-                'price' => 1.5,
-                'date' => '2024-09-13',
-                'created' => '2024-09-13 11:16:44',
-                'modified' => '2024-09-13 11:16:44',
+                'transaction_code' => 'Lorem ipsum dolor sit amet',
+                'price' => 1,
+                'created' => '2024-09-14 08:59:03',
+                'modified' => '2024-09-14 08:59:03',
             ],
         ];
         parent::init();

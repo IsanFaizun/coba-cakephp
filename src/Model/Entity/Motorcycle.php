@@ -10,11 +10,7 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property string $name
- * @property string $brand
- * @property string $model
- * @property string $price
  * @property int $year
- * @property string $status
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  *
@@ -34,11 +30,7 @@ class Motorcycle extends Entity
      */
     protected $_accessible = [
         'name' => true,
-        'brand' => true,
-        'model' => true,
-        'price' => true,
         'year' => true,
-        'status' => true,
         'created' => true,
         'modified' => true,
         'purchases' => true,

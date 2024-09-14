@@ -22,10 +22,10 @@ class PurchasesFixture extends TestFixture
                 'id' => 1,
                 'motorcycle_id' => 1,
                 'supplier_id' => 1,
-                'price' => 1.5,
-                'date' => '2024-09-13',
-                'created' => '2024-09-13 11:16:37',
-                'modified' => '2024-09-13 11:16:37',
+                'transaction_code' => 'Lorem ipsum dolor sit amet',
+                'price' => 1,
+                'created' => '2024-09-14 11:49:00',
+                'modified' => '2024-09-14 11:49:00',
             ],
         ];
         parent::init();

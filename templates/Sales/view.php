@@ -27,16 +27,16 @@
                     <td><?= $sale->has('customer') ? $this->Html->link($sale->customer->name, ['controller' => 'Customers', 'action' => 'view', $sale->customer->id]) : '' ?></td>
                 </tr>
                 <tr>
+                    <th><?= __('Transaction Code') ?></th>
+                    <td><?= h($sale->transaction_code) ?></td>
+                </tr>
+                <tr>
                     <th><?= __('Id') ?></th>
                     <td><?= $this->Number->format($sale->id) ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Price') ?></th>
                     <td><?= $this->Number->format($sale->price) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Date') ?></th>
-                    <td><?= h($sale->date) ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Created') ?></th>

@@ -23,24 +23,8 @@
                     <td><?= h($motorcycle->name) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('Brand') ?></th>
-                    <td><?= h($motorcycle->brand) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Model') ?></th>
-                    <td><?= h($motorcycle->model) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Status') ?></th>
-                    <td><?= h($motorcycle->status) ?></td>
-                </tr>
-                <tr>
                     <th><?= __('Id') ?></th>
                     <td><?= $this->Number->format($motorcycle->id) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Price') ?></th>
-                    <td><?= $this->Number->format($motorcycle->price) ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Year') ?></th>
@@ -64,8 +48,8 @@
                             <th><?= __('Id') ?></th>
                             <th><?= __('Motorcycle Id') ?></th>
                             <th><?= __('Supplier Id') ?></th>
+                            <th><?= __('Transaction Code') ?></th>
                             <th><?= __('Price') ?></th>
-                            <th><?= __('Date') ?></th>
                             <th><?= __('Created') ?></th>
                             <th><?= __('Modified') ?></th>
                             <th class="actions"><?= __('Actions') ?></th>
@@ -75,8 +59,8 @@
                             <td><?= h($purchases->id) ?></td>
                             <td><?= h($purchases->motorcycle_id) ?></td>
                             <td><?= h($purchases->supplier_id) ?></td>
+                            <td><?= h($purchases->transaction_code) ?></td>
                             <td><?= h($purchases->price) ?></td>
-                            <td><?= h($purchases->date) ?></td>
                             <td><?= h($purchases->created) ?></td>
                             <td><?= h($purchases->modified) ?></td>
                             <td class="actions">
@@ -99,8 +83,8 @@
                             <th><?= __('Id') ?></th>
                             <th><?= __('Motorcycle Id') ?></th>
                             <th><?= __('Customer Id') ?></th>
+                            <th><?= __('Transaction Code') ?></th>
                             <th><?= __('Price') ?></th>
-                            <th><?= __('Date') ?></th>
                             <th><?= __('Created') ?></th>
                             <th><?= __('Modified') ?></th>
                             <th class="actions"><?= __('Actions') ?></th>
@@ -110,8 +94,8 @@
                             <td><?= h($sales->id) ?></td>
                             <td><?= h($sales->motorcycle_id) ?></td>
                             <td><?= h($sales->customer_id) ?></td>
+                            <td><?= h($sales->transaction_code) ?></td>
                             <td><?= h($sales->price) ?></td>
-                            <td><?= h($sales->date) ?></td>
                             <td><?= h($sales->created) ?></td>
                             <td><?= h($sales->modified) ?></td>
                             <td class="actions">

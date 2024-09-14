@@ -14,8 +14,8 @@
                     <th><?= $this->Paginator->sort('id') ?></th>
                     <th><?= $this->Paginator->sort('motorcycle_id') ?></th>
                     <th><?= $this->Paginator->sort('customer_id') ?></th>
+                    <th><?= $this->Paginator->sort('transaction_code') ?></th>
                     <th><?= $this->Paginator->sort('price') ?></th>
-                    <th><?= $this->Paginator->sort('date') ?></th>
                     <th><?= $this->Paginator->sort('created') ?></th>
                     <th><?= $this->Paginator->sort('modified') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
@@ -27,8 +27,8 @@
                     <td><?= $this->Number->format($sale->id) ?></td>
                     <td><?= $sale->has('motorcycle') ? $this->Html->link($sale->motorcycle->name, ['controller' => 'Motorcycles', 'action' => 'view', $sale->motorcycle->id]) : '' ?></td>
                     <td><?= $sale->has('customer') ? $this->Html->link($sale->customer->name, ['controller' => 'Customers', 'action' => 'view', $sale->customer->id]) : '' ?></td>
+                    <td><?= h($sale->transaction_code) ?></td>
                     <td><?= $this->Number->format($sale->price) ?></td>
-                    <td><?= h($sale->date) ?></td>
                     <td><?= h($sale->created) ?></td>
                     <td><?= h($sale->modified) ?></td>
                     <td class="actions">
