@@ -38,6 +38,14 @@
                     <th><?= __('Price') ?></th>
                     <td><?= $this->Number->format($sale->price) ?></td>
                 </tr>
+                <?php
+                // Load VoucherHelper
+                $this->loadHelper('Voucher');
+                ?>
+                <tr>
+                    <th><?= __('Voucher') ?></th>
+                    <td><?= $this->Voucher->getVoucher($sale->price) ?></td>
+                </tr>
                 <tr>
                     <th><?= __('Created') ?></th>
                     <td><?= h($sale->created) ?></td>
