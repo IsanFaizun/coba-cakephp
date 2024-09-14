@@ -58,11 +58,7 @@ class PurchasesController extends AppController
     {
         $purchase = $this->Purchases->newEmptyEntity();
         if ($this->request->is('post')) {
-            // Patch data from the request into the entity
             $purchase = $this->Purchases->patchEntity($purchase, $this->request->getData());
-
-            // Generate the transaction code using the component
-            // Pass the current date or the date from the request
             $purchase->transaction_code = $this->TransactionCode->generateTransactionCode(date('Y-m-d H:i:s'), 'PRC', 'Purchases');
 
             // Attempt to save the purchase entity

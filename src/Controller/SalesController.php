@@ -16,6 +16,13 @@ class SalesController extends AppController
      *
      * @return \Cake\Http\Response|null|void Renders view
      */
+
+    public function initialize(): void
+    {
+        parent::initialize();
+        $this->loadComponent('TransactionCode');
+    }
+
     public function index()
     {
         $this->paginate = [
@@ -52,9 +59,10 @@ class SalesController extends AppController
         $sale = $this->Sales->newEmptyEntity();
         if ($this->request->is('post')) {
             $sale = $this->Sales->patchEntity($sale, $this->request->getData());
+            $sale->transaction_code = $this->TransactionCode->generateTransactionCode(date('Y-m-d H:i:s'), 'SAL', 'Sales');
+
             if ($this->Sales->save($sale)) {
                 $this->Flash->success(__('The sale has been saved.'));
-
                 return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('The sale could not be saved. Please, try again.'));
