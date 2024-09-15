@@ -43,7 +43,7 @@ class PurchasesController extends AppController
     public function view($id = null)
     {
         $purchase = $this->Purchases->get($id, [
-            'contain' => ['Motorcycles', 'Suppliers'],
+            'contain' => ['Motorcycles', 'Suppliers', 'Creators', 'Modifiers'],
         ]);
 
         $this->set(compact('purchase'));
@@ -61,12 +61,10 @@ class PurchasesController extends AppController
             $purchase = $this->Purchases->patchEntity($purchase, $this->request->getData());
             $purchase->transaction_code = $this->TransactionCode->generateTransactionCode(date('Y-m-d H:i:s'), 'PRC', 'Purchases');
 
-            // Attempt to save the purchase entity
             if ($this->Purchases->save($purchase)) {
                 $this->Flash->success(__('The purchase has been saved.'));
                 return $this->redirect(['action' => 'index']);
             } else {
-                // Debug: Output validation errors
                 $this->Flash->error(__('The purchase could not be saved. Please, try again.'));
                 debug($purchase->getErrors());
             }

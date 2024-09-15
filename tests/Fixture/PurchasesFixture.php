@@ -24,8 +24,10 @@ class PurchasesFixture extends TestFixture
                 'supplier_id' => 1,
                 'transaction_code' => 'Lorem ipsum dolor sit amet',
                 'price' => 1,
-                'created' => '2024-09-14 11:49:00',
-                'modified' => '2024-09-14 11:49:00',
+                'created' => '2024-09-15 09:57:09',
+                'modified' => '2024-09-15 09:57:09',
+                'created_by' => 1,
+                'modified_by' => 1,
             ],
         ];
         parent::init();

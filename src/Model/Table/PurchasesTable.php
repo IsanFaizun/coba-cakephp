@@ -85,6 +85,16 @@ class PurchasesTable extends Table
             ->requirePresence('price', 'create')
             ->notEmptyString('price');
 
+        $validator
+            ->integer('created_by')
+            ->requirePresence('created_by', 'create')
+            ->notEmptyString('created_by');
+
+        $validator
+            ->integer('modified_by')
+            ->requirePresence('modified_by', 'create')
+            ->notEmptyString('modified_by');
+
         return $validator;
     }
 

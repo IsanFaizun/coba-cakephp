@@ -39,6 +39,14 @@
                     <td><?= $this->Number->format($purchase->price) ?></td>
                 </tr>
                 <tr>
+                    <th><?= __('Created By') ?></th>
+                    <td><?= $this->Number->format($purchase->created_by) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Modified By') ?></th>
+                    <td><?= $this->Number->format($purchase->modified_by) ?></td>
+                </tr>
+                <tr>
                     <th><?= __('Created') ?></th>
                     <td><?= h($purchase->created) ?></td>
                 </tr>

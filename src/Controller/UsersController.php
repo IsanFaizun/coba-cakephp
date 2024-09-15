@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use Cake\Log\Log;
+
 /**
  * Users Controller
  *
@@ -16,11 +18,64 @@ class UsersController extends AppController
      *
      * @return \Cake\Http\Response|null|void Renders view
      */
-    public function index()
+    public function initialize(): void
     {
+        parent::initialize();
+        
+        $this->loadComponent('Authentication.Authentication');
+    }
+    
+     public function beforeFilter(\Cake\Event\EventInterface $event)
+    {
+        $this->Authentication->addUnauthenticatedActions(['login', 'add']);
+        parent::beforeFilter($event);
+    }
+
+    public function login()
+    {
+        $this->request->allowMethod(['get', 'post']);
+        $result = $this->Authentication->getResult();
+        if ($result->isValid()) {
+
+            $authUser = $this->Authentication->getIdentity();
+            $session = $this->getRequest()->getSession();
+            $session->write('Auth.userEmail', $authUser->get('email'));
+
+            $sessionData = $session->read('Auth.userEmail');
+
+            $redirect = $this->request->getQuery('redirect', [
+                'controller' => 'Users',
+                'action' => 'index'
+            ]);
+            $this->Flash->success('Login berhasil dengan email: '. $sessionData);
+            return $this->redirect($redirect);
+        }
+        if ($this->request->is('post') && !$result->isValid()) {
+            $this->Flash->error(__('Invalid username or password'));
+        }
+    }
+
+    public function logout()
+    {
+        $result = $this->Authentication->getResult();
+        if ($result->isValid()) {
+            $this->Authentication->logout();
+            return $this->redirect(['controller' => 'Users', 'action' => 'login']);
+        }
+    }
+
+     public function index()
+    {
+        $session = $this->getRequest()->getSession();
+        $userEmail = $session->read('Auth.userEmail');
+
         $users = $this->paginate($this->Users);
 
-        $this->set(compact('users'));
+        $this->set(compact('users', 'userEmail'));
+
+        if(!$userEmail){
+            $this->Flash->error(__('Anda belum login'));
+        }
     }
 
     /**

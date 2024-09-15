@@ -15,6 +15,8 @@ use Cake\ORM\Entity;
  * @property int $price
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
+ * @property int $created_by
+ * @property int $modified_by
  *
  * @property \App\Model\Entity\Motorcycle $motorcycle
  * @property \App\Model\Entity\Supplier $supplier
@@ -37,6 +39,8 @@ class Purchase extends Entity
         'price' => true,
         'created' => true,
         'modified' => true,
+        'created_by' => true,
+        'modified_by' => true,
         'motorcycle' => true,
         'supplier' => true,
     ];
