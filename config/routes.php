@@ -62,6 +62,12 @@ return function (RouteBuilder $routes): void {
          */
         $builder->connect('/pages/*', 'Pages::display');
 
+        $builder->connect('/report-purchases', ['controller' => 'ReportPurchases', 'action' => 'index']);
+        $builder->connect('/report-purchases/export', ['controller' => 'ReportPurchases', 'action' => 'export']);
+        
+        $builder->connect('/report-sales', ['controller' => 'ReportSales', 'action' => 'index']);
+        $builder->connect('/report-sales/export', ['controller' => 'ReportSales', 'action' => 'export']);
+
         /*
          * Connect catchall routes for all controllers.
          *
